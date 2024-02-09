@@ -57,10 +57,8 @@ def get_students():
     print("-----------------------------------------------") 
 
     rows = cursor.execute('SELECT student_id, first_name, last_name, email FROM students')
-    debug_count = 0
     for row in rows:
         print(f"{row[0]} \t {row[1]} \t {row[2]} \t {row[3]}")
-        print(debug_count)
 
     print()
     print()
@@ -90,6 +88,7 @@ def add_class():
                     (student_id, class_name, grade)
                     VALUES (?, ?, ?)''',
                     (student_id, class_name, grade))
+    print("Student was added\n\n")
 
 def get_class():
     student_id = input("Enter the Students ID: ")
@@ -167,6 +166,7 @@ while(not done):
             print("Error, that is not one of the options listed")
 
 # Close the database connection when we are done with the program
+cursor.close()
 connection.close()
 
 

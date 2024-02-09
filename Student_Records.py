@@ -89,6 +89,7 @@ def add_class():
                     VALUES (?, ?, ?)''',
                     (student_id, class_name, grade))
     print("Student was added\n\n")
+    connection.commit()
 
 def get_class():
     student_id = input("Enter the Students ID: ")
